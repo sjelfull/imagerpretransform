@@ -2,7 +2,7 @@
 
 Pretransform any Assets on save, with Imager
 
-![Screenshot](resources/icon@2x.png)
+![Screenshot](resources/icon.png)
 
 ## Installation
 
