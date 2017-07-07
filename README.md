@@ -26,7 +26,7 @@ When users upload an Asset, a task will be created, which in turn will use Image
 
 You can either have a set of transforms per Asset source handle:
 
-```twig
+```php
 <?php
 return [
     'transforms' => [
@@ -68,7 +68,7 @@ return [
 
 Or just a set of transforms that will be applied to all Assets on upload/save:
 
-```twig
+```php
 <?php
 return [
     'transforms' => [
@@ -97,7 +97,7 @@ You should also set Imager's cache duration to a long time, say 1 year:
 
 In imager.php:
 
-```
+```php
 'cacheDuration' => 31536000, // 1 year
 ```
 
