@@ -52,7 +52,7 @@ class ImagerPretransformPlugin extends BasePlugin
      */
     public function getDocumentationUrl ()
     {
-        return 'https://github.com/sjelfull/imagerpretransform/blob/master/README.md';
+        return 'https://superbig.co/plugins/imager-pretransform';
     }
 
     /**
@@ -60,7 +60,7 @@ class ImagerPretransformPlugin extends BasePlugin
      */
     public function getReleaseFeedUrl ()
     {
-        return 'https://raw.githubusercontent.com/sjelfull/imagerpretransform/master/releases.json';
+        return 'https://superbig.co/plugins/imager-pretransform/feed';
     }
 
     /**
@@ -93,37 +93,5 @@ class ImagerPretransformPlugin extends BasePlugin
     public function getDeveloperUrl ()
     {
         return 'https://superbig.co';
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasCpSection ()
-    {
-        return false;
-    }
-
-    /**
-     */
-    public function onBeforeInstall ()
-    {
-    }
-
-    /**
-     */
-    public function onAfterInstall ()
-    {
-    }
-
-    /**
-     */
-    public function onBeforeUninstall ()
-    {
-    }
-
-    /**
-     */
-    public function onAfterUninstall ()
-    {
     }
 }
