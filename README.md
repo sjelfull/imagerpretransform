@@ -26,7 +26,7 @@ When users upload an Asset, a task will be created, which in turn will use Image
 
 You can either have a set of transforms per Asset source handle:
 
-```
+```twig
 <?php
 return [
     'transforms' => [
@@ -68,7 +68,7 @@ return [
 
 Or just a set of transforms that will be applied to all Assets on upload/save:
 
-```
+```twig
 <?php
 return [
     'transforms' => [
