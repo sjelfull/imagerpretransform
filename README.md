@@ -12,7 +12,7 @@ To install Imager Pretransform, follow these steps:
 4. Install plugin in the Craft Control Panel under Settings > Plugins
 5. The plugin folder should be named `imagerpretransform` for Craft to see it.
 
-Imager Pretransform works on Craft 2.4.x and Craft 2.5.x.
+Imager Pretransform works on Craft 2.6.x.
 
 ## Imager Pretransform Overview
 
@@ -99,6 +99,28 @@ In imager.php:
 
 ```php
 'cacheDuration' => 31536000, // 1 year
+```
+
+If any of your transform settings depends on a value from the specific Asset, you can pass a function instead of a string.
+
+The function will be passed the AssetFileModel.
+
+As an example, this is how you would use a Focal Point field:
+
+```php
+<?php
+return [
+    'transforms' => [
+        [
+            'width'       => 400,
+            'height'      => 400,
+            'mode'        => 'croponly',
+            'position'    => function ($asset) {
+                return $asset->focalPointField;
+            },
+        ],
+    ]
+];
 ```
 
 
