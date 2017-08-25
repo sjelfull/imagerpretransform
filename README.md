@@ -123,5 +123,12 @@ return [
 ];
 ```
 
+## Using Imager Pretransform
+
+There is 3 ways to pretransform images:
+- Automatically on upload
+- Manually through element action
+- imagerpretransform console command that takes either folderId or sourceHandle as argument
+
 
 Brought to you by [Superbig](https://superbig.co)
