@@ -68,7 +68,7 @@ class ImagerPretransformPlugin extends BasePlugin
      */
     public function getVersion ()
     {
-        return '1.0.1';
+        return '1.0.2';
     }
 
     /**
@@ -93,5 +93,13 @@ class ImagerPretransformPlugin extends BasePlugin
     public function getDeveloperUrl ()
     {
         return 'https://superbig.co';
+    }
+
+    public function addAssetActions()
+    {
+        $actions = [];
+        $actions[] = 'ImagerPretransform_Pretransform';
+
+        return $actions;
     }
 }
