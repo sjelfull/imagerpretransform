@@ -17,11 +17,17 @@ class ImagerPretransformService extends BaseApplicationComponent
 {
     public function onSaveAsset (AssetFileModel $asset)
     {
-        craft()->tasks->createTask('ImagerPretransform', 'Pretransforming Asset #' . $asset->id, [ 'assetId' => $asset->id ]);
+        if ($asset->kind === 'image') {
+            craft()->tasks->createTask('ImagerPretransform', 'Pretransforming Asset #' . $asset->id, [ 'assetId' => $asset->id ]);
+        }
     }
 
     public function transformAsset (AssetFileModel $asset)
     {
+        if ($asset->kind !== 'image') {
+            return true;
+        }
+
         $sourceHandle      = $asset->getSource()->handle;
         $transforms        = $this->getTransforms($sourceHandle, $asset);
         $transformDefaults = null;
