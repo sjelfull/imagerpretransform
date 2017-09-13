@@ -17,14 +17,14 @@ class ImagerPretransformService extends BaseApplicationComponent
 {
     public function onSaveAsset (AssetFileModel $asset)
     {
-        if ($asset->kind === 'image') {
+        if ( $this->shouldTransform($asset) ) {
             craft()->tasks->createTask('ImagerPretransform', 'Pretransforming Asset #' . $asset->id, [ 'assetId' => $asset->id ]);
         }
     }
 
     public function transformAsset (AssetFileModel $asset)
     {
-        if ($asset->kind !== 'image') {
+        if ( $asset->kind !== 'image' ) {
             return true;
         }
 
@@ -68,6 +68,11 @@ class ImagerPretransformService extends BaseApplicationComponent
         ImagerPretransformPlugin::log(json_encode($transforms), LogLevel::Info);
 
         return $transforms;
+    }
+
+    public function shouldTransform ($element)
+    {
+        return $element->getElementType() === 'Asset' && $element->kind === 'image' && ($element->extension !== 'svg' && $element->mimeType !== 'image/svg+xml');
     }
 
 }

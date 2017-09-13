@@ -25,7 +25,7 @@ class ImagerPretransformPlugin extends BasePlugin
         craft()->on('elements.onSaveElement', function (Event $event) {
             $element = $event->params['element'];
 
-            if ( $element->getElementType() === 'Asset' ) {
+            if ( craft()->imagerPretransform->shouldTransform($element) ) {
                 craft()->imagerPretransform->onSaveAsset($event->params['element']);
             }
         });
@@ -44,7 +44,7 @@ class ImagerPretransformPlugin extends BasePlugin
      */
     public function getDescription ()
     {
-        return Craft::t('Pretransform any Assets on save, with Imager');
+        return Craft::t('Pretransform any Assets on save with Imager');
     }
 
     /**
@@ -68,7 +68,7 @@ class ImagerPretransformPlugin extends BasePlugin
      */
     public function getVersion ()
     {
-        return '1.0.3';
+        return '1.0.4';
     }
 
     /**
@@ -95,9 +95,9 @@ class ImagerPretransformPlugin extends BasePlugin
         return 'https://superbig.co';
     }
 
-    public function addAssetActions()
+    public function addAssetActions ()
     {
-        $actions = [];
+        $actions   = [ ];
         $actions[] = 'ImagerPretransform_Pretransform';
 
         return $actions;
